@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "praanapages",
+  "info": {
+    "singularName": "praanapage",
+    "pluralName": "praanapages",
+    "displayName": "Praanapage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "praanapages": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.rich-text",
+        "shared.media"
+      ]
+    }
+  }
+}

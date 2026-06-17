@@ -819,6 +819,36 @@ export interface ApiLogoLogo extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPraanapagePraanapage extends Struct.CollectionTypeSchema {
+  collectionName: 'praanapages';
+  info: {
+    displayName: 'Praanapage';
+    pluralName: 'praanapages';
+    singularName: 'praanapage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::praanapage.praanapage'
+    > &
+      Schema.Attribute.Private;
+    praanapages: Schema.Attribute.DynamicZone<
+      ['shared.rich-text', 'shared.media']
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRotationsectionRotationsection
   extends Struct.CollectionTypeSchema {
   collectionName: 'rotationsections';
@@ -1407,6 +1437,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::logo.logo': ApiLogoLogo;
+      'api::praanapage.praanapage': ApiPraanapagePraanapage;
       'api::rotationsection.rotationsection': ApiRotationsectionRotationsection;
       'api::service.service': ApiServiceService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
