@@ -20,6 +20,9 @@
         "videos",
         "audios"
       ]
+    },
+    "imagelocation": {
+      "type": "string"
     }
   }
 }
